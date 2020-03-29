@@ -34,21 +34,23 @@
             clear
         </button>
 
-        <h1 id="advice">You don't have any notes.</h1>
+        <div class="content">
+            <h1 id="advice">You don't have any notes.</h1>
 
-        <div id="note_container">
-            <div class="note_box" id="0C">
-                <div class="note_title">
-                    <img src="images/close.svg" alt="X" width="15" class="close_icon" id="0"
-                        onclick="close_box(this);" />
+            <div id="note_container">
+                <div class="note_box" id="0C">
+                    <div class="note_title">
+                        <img src="images/close.svg" alt="X" width="15" class="close_icon" id="0"
+                            onclick="close_box(this);" />
 
-                    <div class="editable_title" contenteditable="true" spellcheck="false">My first note!</div>
-                </div>
+                        <div class="editable_title" contenteditable="true" spellcheck="false">My first note!</div>
+                    </div>
 
-                <div class="note_paragraph">
+                    <div class="note_paragraph">
 
-                    <textarea class="editable_paragraph" spellcheck="false" placeholder='You can write here!'
-                        oninput='auto_grow(this)'></textarea>
+                        <textarea class="editable_paragraph" spellcheck="false" placeholder='You can write here!'
+                            oninput='auto_grow(this)'></textarea>
+                    </div>
                 </div>
             </div>
         </div>

@@ -139,6 +139,10 @@ body {
 		margin-bottom: 50px;
 	}
 
+	.content {
+		width: 100%;
+	}
+
 	#note_container {
 		width: 100%;
 		height: auto;
@@ -234,11 +238,6 @@ body {
 
 #advice {
 	user-select: none;
-
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 
 	text-align: center;
 
