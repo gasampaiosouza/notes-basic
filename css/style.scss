@@ -195,13 +195,19 @@ body {
 
 				font-size: 1.5rem;
 				font-weight: 500;
-
 				color: $white;
+
+				background: transparent;
+				border: none;
 
 				letter-spacing: 1px;
 				margin: 15px 0;
 				outline: none;
 				line-height: 30px;
+
+				&::placeholder {
+					color: $white;
+				}
 			}
 		}
 
@@ -209,7 +215,6 @@ body {
 			padding: 15px;
 			background: $white;
 
-			// input
 			.editable_paragraph {
 				width: 100%;
 				height: auto;

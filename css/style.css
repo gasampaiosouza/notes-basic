@@ -373,10 +373,28 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   color: #f0f0f0;
+  background: transparent;
+  border: none;
   letter-spacing: 1px;
   margin: 15px 0;
   outline: none;
   line-height: 30px;
+}
+
+#container .note_box .note_title .editable_title::-webkit-input-placeholder {
+  color: #f0f0f0;
+}
+
+#container .note_box .note_title .editable_title:-ms-input-placeholder {
+  color: #f0f0f0;
+}
+
+#container .note_box .note_title .editable_title::-ms-input-placeholder {
+  color: #f0f0f0;
+}
+
+#container .note_box .note_title .editable_title::placeholder {
+  color: #f0f0f0;
 }
 
 #container .note_box .note_paragraph {
