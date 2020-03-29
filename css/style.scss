@@ -269,6 +269,7 @@ body {
 		align-items: center;
 
 		.confirmation_content {
+			text-align: center;
 			animation-delay: .5s;
 
 			h2 {
@@ -326,4 +327,11 @@ body {
 #alert.show {
 	visibility: visible;
 	animation: fade-in .3s, fade-out .5s 2.5s;
+}
+
+@media only screen and (max-width: 500px) {
+	.note_box {
+		width: 90%;
+		margin: auto;
+	}
 }

@@ -448,6 +448,7 @@ body {
 }
 
 #clear_confirmation .confirmation_box .confirmation_content {
+  text-align: center;
   -webkit-animation-delay: .5s;
           animation-delay: .5s;
 }
@@ -511,5 +512,12 @@ body {
   visibility: visible;
   -webkit-animation: fade-in .3s, fade-out .5s 2.5s;
           animation: fade-in .3s, fade-out .5s 2.5s;
+}
+
+@media only screen and (max-width: 500px) {
+  .note_box {
+    width: 90%;
+    margin: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */
