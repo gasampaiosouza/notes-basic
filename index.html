@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Notes</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="title"> Notes </h1>
+
+        <div class="create_note_container">
+            <div id="create_note" onclick="newNote();">
+                <img src="images/plus.svg" alt="+" width="25" />
+            </div>
+            <p class="desc">New note</p>
+        </div>
+
+        <button class="btn" id="clear">
+            clear
+        </button>
+
+        <h1 id="advice">You don't have any notes.</h1>
+
+        <div id="note_container">
+            <div class="note_box" id="0C">
+                <div class="note_title">
+                    <img src="images/close.svg" alt="X" width="15" class="close_icon" id="0"
+                        onclick="close_box(this);" />
+
+                    <div class="editable_title" contenteditable="true" spellcheck="false">My first note!</div>
+                </div>
+
+                <div class="note_paragraph">
+
+                    <textarea class="editable_paragraph" spellcheck="false" placeholder='You can write here!'
+                        oninput='auto_grow(this)'></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="clear_confirmation" class="none">
+            <div class="confirmation_box">
+                <div class="confirmation_content">
+                    <h2>You really want to clear all your notes?</h2>
+
+                    <div class="button_container">
+                        <button class="btn" id="clear_yes">yes</button>
+                        <button class="btn" id="clear_no">no</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
