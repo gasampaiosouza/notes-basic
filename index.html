@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <title>Notes</title>
 </head>
 
 <body>
     <div id="container">
+
+        <!-- toast -->
+        <div id="alert">There's nothing to clear</div>
+        <!--  -->
+
         <h1 class="title"> Notes </h1>
 
         <div class="create_note_container">
@@ -22,7 +30,7 @@
             <p class="desc">New note</p>
         </div>
 
-        <button class="btn" id="clear">
+        <button class="btn_" id="clear">
             clear
         </button>
 
@@ -51,8 +59,8 @@
                     <h2>You really want to clear all your notes?</h2>
 
                     <div class="button_container">
-                        <button class="btn" id="clear_yes">yes</button>
-                        <button class="btn" id="clear_no">no</button>
+                        <button class="btn_" id="clear_yes">yes</button>
+                        <button class="btn_" id="clear_no">no</button>
                     </div>
                 </div>
             </div>

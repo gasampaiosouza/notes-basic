@@ -112,6 +112,50 @@
   }
 }
 
+@-webkit-keyframes fade-in {
+  from {
+    right: -250px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    right: -250px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    opacity: 1;
+    right: 0;
+  }
+  to {
+    right: -250px;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    right: 0;
+  }
+  to {
+    right: -250px;
+    opacity: 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -136,7 +180,7 @@
 }
 
 .color {
-  color: #fc5185 !important;
+  color: #43dde6 !important;
   font-weight: 500 !important;
 }
 
@@ -150,8 +194,12 @@
   font-weight: 400 !important;
 }
 
-.btn {
-  outline: none;
+.btn_ {
+  outline: none !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
   padding: 10px 35px;
   font-size: 1rem;
@@ -167,16 +215,17 @@
   transition: all .2s ease-in-out;
 }
 
-.btn:hover {
+.btn_:hover {
   background-color: #fd9dba;
 }
 
 body {
   height: 100vh;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif !important;
   background: #ece9e6;
   background: -webkit-gradient(linear, right top, left top, from(#ffffff), to(#ece9e6));
   background: linear-gradient(to left, #ffffff, #ece9e6);
+  overflow-x: hidden;
 }
 
 #container {
@@ -221,7 +270,7 @@ body {
   height: 50px;
   min-width: 50px;
   min-height: 50px;
-  background-color: #fc5185;
+  background-color: #43dde6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -232,32 +281,32 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
-  -webkit-box-shadow: 2px 2px 15px rgba(252, 81, 133, 0.5);
-          box-shadow: 2px 2px 15px rgba(252, 81, 133, 0.5);
+  -webkit-box-shadow: 2px 2px 15px rgba(67, 221, 230, 0.5);
+          box-shadow: 2px 2px 15px rgba(67, 221, 230, 0.5);
   border-radius: 100px;
   -webkit-transition: background-color .2s ease-in-out;
   transition: background-color .2s ease-in-out;
 }
 
 #container .create_note_container #create_note:hover {
-  background-color: #fd9dba;
+  background-color: #85f4fa;
 }
 
 #container .create_note_container #create_note:hover + p.desc {
-  color: #fd9dba;
+  color: #85f4fa;
 }
 
 #container .create_note_container p.desc {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  color: #fc5185 !important;
+  color: #43dde6 !important;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 
-#container button.btn {
+#container button#clear {
   margin-bottom: 50px;
 }
 
@@ -335,7 +384,7 @@ body {
   height: auto;
   min-height: 120px;
   font-size: 1rem;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif !important;
   border: none;
   outline: none;
   word-spacing: 3px !important;
@@ -350,13 +399,20 @@ body {
 }
 
 #advice {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  text-align: center;
   color: rgba(41, 60, 82, 0.5);
   display: none;
+  -webkit-animation: opacity .8s ease-in-out;
+          animation: opacity .8s ease-in-out;
 }
 
 #clear_confirmation {
@@ -375,7 +431,7 @@ body {
   width: 100%;
   z-index: 2;
   background: #f0f0f0;
-  padding-top: 30px;
+  padding: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -397,7 +453,7 @@ body {
 }
 
 #clear_confirmation .confirmation_box .confirmation_content h2 {
-  color: rgba(41, 60, 82, 0.75);
+  color: rgba(41, 60, 82, 0.85);
 }
 
 #clear_confirmation .confirmation_box .button_container {
@@ -413,10 +469,47 @@ body {
           align-items: center;
 }
 
+#clear_confirmation .confirmation_box .button_container button {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#clear_confirmation .confirmation_box .button_container button:hover {
+  background-color: #43dde6;
+}
+
 #clear_confirmation .overlay {
   position: absolute;
   width: 100%;
   height: 100vh;
   background: rgba(54, 79, 107, 0.5);
+}
+
+#alert {
+  visibility: hidden;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  min-width: 250px;
+  background-color: #fc5185;
+  color: #f0f0f0;
+  border-radius: 5px 0 0 5px;
+  padding: 16px;
+  z-index: 1;
+  right: 0;
+  top: 30px;
+  -webkit-box-shadow: 2px 2px 15px rgba(252, 81, 133, 0.5);
+          box-shadow: 2px 2px 15px rgba(252, 81, 133, 0.5);
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#alert.show {
+  visibility: visible;
+  -webkit-animation: fade-in .3s, fade-out .5s 2.5s;
+          animation: fade-in .3s, fade-out .5s 2.5s;
 }
 /*# sourceMappingURL=style.css.map */

@@ -49,3 +49,25 @@
 		opacity: 1;
 	}
 }
+
+@keyframes fade-in {
+	from {
+		right: -250px;
+		opacity: 0;
+	}
+	to {
+		right: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+		right: 0;
+	}
+	to {
+		right: -250px;
+		opacity: 0;
+	}
+}

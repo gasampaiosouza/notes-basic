@@ -8,6 +8,9 @@ $dark_black: #293c52;
 $primary: #fc5185;
 $light_primary: #fd9dba;
 
+$secondary: #43dde6;
+$light_secondary: #85f4fa;
+
 $white: #f0f0f0;
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&display=swap');
@@ -19,7 +22,7 @@ $white: #f0f0f0;
 }
 
 ::selection {
-	background-color: #43dde6;
+	background-color: $secondary;
 	color: $white;
 	font-weight: bold;
 }
@@ -31,7 +34,7 @@ $white: #f0f0f0;
 }
 
 .color {
-	color: $primary !important;
+	color: $secondary !important;
 	font-weight: 500 !important;
 }
 
@@ -45,8 +48,9 @@ $white: #f0f0f0;
 	font-weight: 400 !important;
 }
 
-.btn {
-	outline: none;
+.btn_ {
+	outline: none !important;
+	user-select: none;
 	cursor: pointer;
 	padding: 10px 35px;
 	font-size: 1rem;
@@ -70,11 +74,13 @@ $white: #f0f0f0;
 body {
 	height: 100vh;
 
-	font-family: 'Fira Sans', sans-serif;
+	font-family: 'Fira Sans', sans-serif !important;
 
 	background: #ece9e6;
 	background: -webkit-linear-gradient(to left, #ffffff, #ece9e6);
 	background: linear-gradient(to left, #ffffff, #ece9e6);
+
+	overflow-x: hidden;
 }
 
 #container {
@@ -101,35 +107,35 @@ body {
 
 			min-width: 50px;
 			min-height: 50px;
-			background-color: $primary;
+			background-color: $secondary;
 
 			display: flex;
 			justify-content: center;
 			align-items: center;
 
 			margin-bottom: 10px;
-			box-shadow: 2px 2px 15px rgba($color: $primary, $alpha: .5);
+			box-shadow: 2px 2px 15px rgba($color: $secondary, $alpha: .5);
 			border-radius: 100px;
 			transition: background-color .2s ease-in-out;
 
 			&:hover {
-				background-color: $light_primary;
+				background-color: $light_secondary;
 
 				& + p.desc {
-					color: $light_primary;
+					color: $light_secondary;
 				}
 			}
 		}
 
 		p.desc {
 			transition: all .3s ease-in-out;
-			color: $primary !important;
+			color: $secondary !important;
 
 			user-select: none;
 		}
 	}
 
-	button.btn {
+	button#clear {
 		margin-bottom: 50px;
 	}
 
@@ -147,13 +153,11 @@ body {
 
 	.note_box {
 		position: relative;
-		// margin: 50px;
 
-		// width: 500px;
 		max-width: $note_width;
 		height: auto;
 
-		box-shadow: 2px 2px 4px rgba($color: $primary, $alpha: .25); // flamingo
+		box-shadow: 2px 2px 4px rgba($color: $primary, $alpha: .25);
 
 		transition: all .2s ease-in-out;
 		animation: slide .5s ease-in-out;
@@ -175,12 +179,10 @@ body {
 			height: auto;
 			background-color: $primary;
 
-			// background-color: transparent;
-
 			display: flex;
 			padding: 0 15px;
 
-			box-shadow: 0 5px 5px rgba($color: $primary, $alpha: .15); // flamingo
+			box-shadow: 0 5px 5px rgba($color: $primary, $alpha: .15);
 
 			.editable_title {
 				max-width: 80%;
@@ -188,7 +190,6 @@ body {
 
 				font-size: 1.5rem;
 				font-weight: 500;
-				// text-transform: uppercase;
 
 				color: $white;
 
@@ -210,7 +211,7 @@ body {
 				min-height: 120px;
 
 				font-size: 1rem;
-				font-family: 'Fira Sans', sans-serif;
+				font-family: 'Fira Sans', sans-serif !important;
 
 				border: none;
 				outline: none;
@@ -232,14 +233,20 @@ body {
 }
 
 #advice {
+	user-select: none;
+
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
+	text-align: center;
+
 	color: rgba($color: $dark_black, $alpha: .5);
 
 	display: none;
+
+	animation: opacity .8s ease-in-out;
 }
 
 // clear confirmation
@@ -255,7 +262,7 @@ body {
 		width: 100%;
 		z-index: 2;
 		background: $white;
-		padding-top: 30px;
+		padding: 30px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -265,7 +272,7 @@ body {
 			animation-delay: .5s;
 
 			h2 {
-				color: rgba($color: $dark_black, $alpha: .75);
+				color: rgba($color: $dark_black, $alpha: .85);
 			}
 		}
 
@@ -275,6 +282,14 @@ body {
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
+
+			button {
+				transition: .3s;
+
+				&:hover {
+					background-color: $secondary;
+				}
+			}
 		}
 	}
 
@@ -284,4 +299,31 @@ body {
 		height: 100vh;
 		background: rgba($color: $black, $alpha: .5);
 	}
+}
+
+// message
+#alert {
+	visibility: hidden;
+
+	position: absolute;
+	user-select: none;
+
+	min-width: 250px;
+
+	background-color: $primary;
+	color: $white;
+	border-radius: 5px 0 0 5px;
+	padding: 16px;
+	z-index: 1;
+	right: 0;
+	top: 30px;
+	box-shadow: 2px 2px 15px rgba($color: $primary, $alpha: .5);
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#alert.show {
+	visibility: visible;
+	animation: fade-in .3s, fade-out .5s 2.5s;
 }
