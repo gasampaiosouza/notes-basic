@@ -312,6 +312,7 @@ body {
 
 #container .content {
   width: 100%;
+  margin-bottom: 50px;
 }
 
 #container #note_container {
