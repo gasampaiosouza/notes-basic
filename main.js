@@ -7,6 +7,21 @@ let container_content = $('#note_container').html();
 
 editable_title[0].focus();
 
+let key = 'notes';
+
+function storeThing() {
+    if (localStorage.getItem('notes'))
+        localStorage.removeItem('notes')
+
+    localStorage.setItem(key, $('#note_container').html());
+}
+
+$('#note_container').html(localStorage.getItem('notes'));
+
+// add 'you don't have any notes' if it's empty
+if ($('.close_icon').length == 0)
+    $('#advice').css('display', 'block');
+
 // create new note
 function newNote() {
     $('#advice').css('display', 'none');
@@ -20,7 +35,10 @@ function newNote() {
 
         counter++;
 
-        editable_title[editable_title.length - 1].innerHTML = 'New note!';
+        if ($('.close_icon').length == 1)
+            editable_title[editable_title.length - 1].placeholder = 'My first note!';
+        else
+            editable_title[editable_title.length - 1].placeholder = 'New note!';
 
         editable_title[editable_title.length - 1].focus();
     }, 0);
@@ -42,6 +60,8 @@ function close_box(el) {
 
     setTimeout(() => {
         $(`#${el.id}C`).remove();
+
+        storeThing();
     }, 300);
 }
 
@@ -60,9 +80,9 @@ $('#clear').click(() => {
 
         $('#clear_confirmation').removeClass('none');
 
-        $('.confirmation_box').css('animation', 'opacity .4s ease-in-out');
+        $('.confirmation_box').css('animation', 'opacity .2s ease-in-out');
 
-        $('.confirmation_content').css('animation', 'slide-left .8s ease-in-out');
+        $('.confirmation_content').css('animation', 'slide-left .4s ease-in-out');
 
         $('.overlay').css('animation', 'opacity 1s ease-in-out');
 
@@ -77,6 +97,8 @@ $('#clear_yes').click(() => {
 
     setTimeout(() => {
         $('.note_box').remove();
+
+        storeThing();
     }, 300);
 
     $('#advice').css('display', 'block');
@@ -104,3 +126,9 @@ function toggleAlert() {
         message.removeClass('show');
     }, 3000);
 }
+
+
+$('#create_note').click(() => {
+    newNote();
+    storeThing();
+});
