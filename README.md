@@ -24,9 +24,9 @@ You know, <br>
 
 ## Future features:
 
-* A Markdown supporter
-* Local storage (*i'm working on it*)
-* Maybe more animations, for the UX.
+- [ ] A Markdown supporter
+- [X] Local storage
+- [X] Maybe more animations, for the UX.
 
 ### Made with:
 
